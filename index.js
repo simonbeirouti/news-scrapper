@@ -33,6 +33,8 @@ const newspapers = [
 
 const app = express()
 
+app.use('/', express.static('public'));
+
 const articles = []
 
 newspapers.forEach(newspaper => {
@@ -55,7 +57,7 @@ newspapers.forEach(newspaper => {
 })
 
 app.get('/', (req, res) => {
-    res.json('Welcome to my news Scraper API')
+    res.render('index')
 })
 
 app.get('/news', (req, res) => {
